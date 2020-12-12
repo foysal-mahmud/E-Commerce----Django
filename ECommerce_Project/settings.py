@@ -37,6 +37,10 @@ INSTALLED_APPS = [
 # bootstrap, bootstrap3, bootstrap4, uni-form
 CRISPY_TEMPLATE_PACK= 'bootstrap4'
 
+
+# Custom user model
+AUTH_USER_MODEL = 'App_Login.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
