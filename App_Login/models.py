@@ -49,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     is_active = models.BooleanField(
         ugettext_lazy('active'),
-        default=False,
+        default=True,
         help_text = ugettext_lazy('Designates whether the user should be treated as active. Unselect this instead of deleting accounts')
     )
 
