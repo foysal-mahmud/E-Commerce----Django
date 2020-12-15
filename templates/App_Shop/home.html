@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<!-- we don't send anything to context, So by default it set object_list -->
+ {% for product in object_list %}
+  {{ product.name }}
+ {% endfor %} 
+
+
+{% endblock %}
