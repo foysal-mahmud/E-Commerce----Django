@@ -2,10 +2,35 @@
 
 {% block body_block %}
 
-<!-- we don't send anything to context, So by default it set object_list -->
- {% for product in object_list %}
-  {{ product.name }}
- {% endfor %} 
+<div class="container my-5">
+  <h2 class="my-5">Feature Products</h2>
+  <div class="row">
+    <!-- we don't send anything to context, So by default it set object_list -->
+    {% for product in object_list %}
+    <div class="col-md-6 col-sm-12 col-lg-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="/media/{{product.mainimage}}" style="width:100%; height:300px;" alt="">
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title"><a href="#">{{ product.name }}</a></h6>
+          <div class="action-wrap">
+            <div class="price-wrap">
+              <span class="price-new">&#2547; {{ product.price|floatformat:2 }}</span>
+              <span class="price-old"><strike>&#2547 {{ product.old_price|floatformat:2 }}</strike></span>
+            </div>
+
+          </div>
+        </figcaption>
+
+      </figure>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
 
 
 {% endblock %}
