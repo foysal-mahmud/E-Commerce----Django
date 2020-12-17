@@ -21,3 +21,18 @@ class Cart(models.Model):
         total = self.item.price * self.quantity
         float_total = format(total, '0.2f')
         return float_total
+
+
+class Order(models.Model):
+    orderitems = models.ManyToManyField(Cart)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    paymentId = models.CharField(max_length=264, blank=True, null=True)
+    orderId = models.CharField(max_length=200, blank=True, null=True)
+
+    def get_totals(self):
+        for order_item in self.orderitems.all():
+            total += float(order_item.get_total())
+
+        return total
