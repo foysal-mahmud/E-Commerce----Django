@@ -32,6 +32,7 @@ class Order(models.Model):
     orderId = models.CharField(max_length=200, blank=True, null=True)
 
     def get_totals(self):
+        total = 0
         for order_item in self.orderitems.all():
             total += float(order_item.get_total())
 
